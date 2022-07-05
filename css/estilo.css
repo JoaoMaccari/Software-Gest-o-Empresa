@@ -5,7 +5,35 @@
 }
 
 body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
     background-color: grey;
+}
+
+header{
+    height: 3em;
+    background-color: #333;
+    margin-bottom: 1em;
+    color: white;
+}
+
+header .titulo{
+    font-size: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    
+    
+}
+
+header h2{
+
+}
+
+header .container:before{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 .main_container{
     
@@ -14,13 +42,30 @@ body{
     position: relative;
 }
 
+.container{
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+section{
+    margin: 2em 0;
+    overflow: hidden;
+}
+
+section h2{
+    font-size: 2em;
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 20px; 
+}
+
 table{
-    position: absolute;
+    
     box-shadow: 0 5px 30px darkgrey;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+    width: 100%;
+    table-layout: fixed;
     
 }
 
@@ -30,6 +75,7 @@ table, th, td{
 }
 
 th, td{
+    text-align: center;
     width: 21%;
    padding: 15px; 
 }
@@ -39,19 +85,6 @@ tr, td{
 }
 
 th{
-    text-align: left;
-}
-
-#minhatabela tr:hover td{
-    background-color: #feffb7;
-}
-
-#minhatabela tr.selecionado td{
-    background-color: #aff7ff;
-  }
-
-
-
-#msg{
-    text-align: end;
+    font-weight: bold;
+    text-align: center;
 }
