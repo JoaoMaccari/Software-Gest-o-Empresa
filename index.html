@@ -57,9 +57,46 @@
                 </section>
             </main>
             
-            <!----> 
-            <section class="container ">
-                <h2></h2>
+           <!-- ... -->
+                <section class="container">
+                    <h2 id="titulo-form">Adicionar nova venda</h2>
+                    <form id="form-adiciona">
+                        <div class="grupo">
+                            <label for="cliente">Cliente:</label>
+                            <input id="cliente" name="cliente" type="text" placeholder="digite o nome do cliente" class="campo">
+                        </div>
+                        <div class="grupo">
+                            <label for="quantidade">Quantidade:</label>
+                            <input id="quantidade" name="quantidade" type="text" placeholder="digite a quantidade de tijolos" class="campo campo-medio">
+                        </div>
+                        <div class="grupo">
+                            <label for="tipo">Tipo:</label>
+                            <select id="tipo" name="tipo" type="text" placeholder="digite o tipo do priduto" class="campo campo-medio" onchange="getTipo()">
+                                <option  >Selecione o tipo</option>
+                                <option  value="6f">6 furos</option>
+                                <option  value="9f">9 furos</option>
+                                <option value="8f">8 furos</option>
+                                <option value="tavela">Tavela</option>
+                            </select>
+                        </div>
+                        <div class="grupo">
+                            <label for="total">Total R$:</label>
+                            <input id="total" type="text" placeholder="digite o total em R$" class="campo campo-medio">
+                        </div>
+                        <div class="grupo">
+                            <label for="socio">Quem recebeu:</label>
+                            <select id="socio" name="socio" type="text" placeholder="digite quem recebeu" class="campo campo-medio" onchange="getSocio()">
+                                <option value="entrada">sócio</option>
+                                <option  value="joao">João</option>
+                                <option  value="jac">Jac</option>
+                    
+                                
+                            </select>
+                        </div>
+                        
+
+                        <button id="adicionar-venda" class="botao bto-principal">Adicionar nova venda</button>
+                    </form>
             </section>
                 
         </div>
