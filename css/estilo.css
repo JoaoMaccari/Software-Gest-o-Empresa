@@ -88,3 +88,7 @@ th{
     font-weight: bold;
     text-align: center;
 }
+
+.campo-invalido{
+    background-color: lightcoral;
+}
