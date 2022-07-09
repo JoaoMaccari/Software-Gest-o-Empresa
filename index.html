@@ -50,7 +50,7 @@
                                 <td class="info-qtd">20</td>
                                 <td class="info-tipo">9 Furos</td>
                                 <td class="info-total">12.000</td>
-                                <td class="info-socio">Jac</td>
+                                <td class="info-socio">socio01</td>
                             </tr>
                         </tbody>
                     </table>
@@ -73,10 +73,10 @@
                             <label for="tipo">Tipo:</label>
                             <select id="tipo" name="tipo" type="text" placeholder="digite o tipo do priduto" class="campo campo-medio" onchange="getTipo()">
                                 <option  >Selecione o tipo</option>
-                                <option  value="6f">6 furos</option>
-                                <option  value="9f">9 furos</option>
-                                <option value="8f">8 furos</option>
-                                <option value="tavela">Tavela</option>
+                                <option name="6f" value="6f">Tijolos 6 furos</option>
+                                <option name="9f"  value="9f">Tijolos 9 furos</option>
+                                <option name="8f" value="8f">Tijolos 8 furos</option>
+                                <option name="tavela" value="tavela">Tavela</option>
                             </select>
                         </div>
                         <div class="grupo">
@@ -87,8 +87,8 @@
                             <label for="socio">Quem recebeu:</label>
                             <select id="socio" name="socio" type="text" placeholder="digite quem recebeu" class="campo campo-medio" onchange="getSocio()">
                                 <option value="entrada">sócio</option>
-                                <option  value="joao">João</option>
-                                <option  value="jac">Jac</option>
+                                <option  value="socio01">Sócio 01</option>
+                                <option  value="socio02">sócio 02</option>
                     
                                 
                             </select>
@@ -103,4 +103,5 @@
 </body>
 
 <script src="js/script.js"></script>
+<script src="js/form.js"></script>
 </html>
