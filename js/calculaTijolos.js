@@ -1,5 +1,7 @@
 var vendas = document.querySelectorAll('.venda');
 var total = document.querySelector('#total');
+let tipo 
+let socio;
 
 let somaTot6f = 0;
 let somaTot9f = 0;
@@ -29,7 +31,7 @@ for (let i = 0; i<vendas.length; i++) {
     let total = tdTotal.textContent
     let socio = tdSocio.textContent
 
-    console.log(tipo);
+ 
     
     let quantidadeEhValido = validaQuantidade(quantidade);
     let nomeEhValido = validaNome(nome);
@@ -75,7 +77,7 @@ for (let i = 0; i<vendas.length; i++) {
         somaTot9f = calculaTotProduto(tipo, quantidade)
         somaTavela = calculaTotProduto(tipo, quantidade)
 
-        console.log(somaTot6f)
+        
     }
 
 
@@ -101,6 +103,8 @@ for (let i = 0; i<vendas.length; i++) {
                     soma =+ quantidade
                     return soma
                 }
+
+                
     }
 
 

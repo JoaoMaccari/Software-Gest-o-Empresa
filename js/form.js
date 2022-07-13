@@ -1,5 +1,10 @@
-let tipo ;
-let socio;
+
+let somaTot6f = 1;
+let somaTot9f = 0;
+let somaTot8f = 0;
+let somaTavela = 0;
+let somaTot = 0;
+
 
 let btnAdd = document.querySelector('#adicionar-venda')
 btnAdd.addEventListener("click", function(event) {
@@ -13,18 +18,19 @@ btnAdd.addEventListener("click", function(event) {
     
     let vendaTr = montaTr(venda)
 
-    // let erros = validaVenda(venda)
-    // var msgErro = document.querySelector("#msg-erro")
+    let erros = validaVenda(venda)
 
-    // if (erros.length > 0) {
-    //     for(let i = 0; i<erros.lenght; i++) {
-    //         msgErro.textContent += erros[i] + ", ";
-    //     }
+    if (erros.length > 0) {
+        for(let i = 0; i<erros.lenght; i++) {
+            var msgErro = document.querySelector("#msg-erro")
+            msgErro.textContent += erros[i];
+        }
+           
+        return ;
+        
+    }
 
-    //     return ;
-    // }
-
-    // msgErro.textContent = " algum campo invalido"
+    
     
 
    
@@ -36,11 +42,8 @@ function getSocio(){
     let inputSelectSocio = document.getElementById('socio');
     let op = inputSelectSocio.options[inputSelectSocio.selectedIndex].text
 
-    let opValor = document.getElementsByClassName('info-tipo')
-    opValor.value = op
-
-    socio = op
-    return socio;
+  
+    return op;
 }
 
 
@@ -49,23 +52,21 @@ function getTipo(){
     let inputSelect = document.getElementById('tipo');
     let op = inputSelect.options[inputSelect.selectedIndex].text
 
-    let opValor = document.getElementsByClassName('info-tipo')
-    opValor.value = op
 
-    
-    tipo = op
    
-    return tipo;
+    return op;
 }
 
 function obtemVendaFormulario(form) {
 
     let venda = {
         cliente: form.cliente.value,
-        quantidade: form.quantidade.value,
+        quantidade:Number(form.quantidade.value),
         tipo: form.tipo.value,
         total: form.total.value,
-        socio: form.socio.value
+        socio: form.socio.value,
+        
+        
         //campo caso for colocar o total na tabela
     }
     console.log(venda);
@@ -126,12 +127,15 @@ function validaVenda(venda) {
         erros.push("socio invalido")
     }
 
+  
+
     return erros
 }
 
 
-function validaNome(nome) {
-    if (nome != ""){
+
+function validaNome(clienteNome) {
+    if (clienteNome != ""){
         return true;
     }else{
         return false;
@@ -139,7 +143,7 @@ function validaNome(nome) {
 }
 
 function validaQuantidade(quantidade) {
-    if (quantidade >=0 && quantidade <= 30.000){
+    if (quantidade >=1 && quantidade <= 30.000){
         return true
     }else {
         return false
@@ -147,7 +151,7 @@ function validaQuantidade(quantidade) {
 }
 
 function validaTipo(tipo) {
-    if (tipo == "Tijolos 6 furos" || tipo == "Tijolos 8 furos" || tipo == "Tijolos 9 furos" || tipo == "Tavela") {
+    if (tipo == "6f" || tipo == "8f" || tipo == "9f" || tipo == "tavela") {
         return true
     }else {
         return false
@@ -155,7 +159,7 @@ function validaTipo(tipo) {
 }
 
 function validaTot(total) {
-    if (total >= 0 && total <=30.000) {
+    if (total >= 1 && total <=30.000) {
         return true
     }else{
         return false
@@ -163,9 +167,36 @@ function validaTot(total) {
 }
 
 function validaSocio(socio) {
-    if (socio == "Sócio 01 " || socio == "Sócio 02") {
+    if (socio == "socio01" || socio == "socio02") {
         return true
     }else{
         return false
     }
+}
+
+
+function calculaTotProduto(tipo, quantidade) {
+
+    if(tipo == '6f') {
+                let soma
+                soma += quantidade
+                return soma
+
+            } else if (tipo == "9f") {
+
+                soma+= quantidade
+                return soma
+
+            }else if (tipo =="8f"){
+
+                somaf =+ quantidade
+                return soma
+
+            }else if (tipo == "tavela") {
+
+                soma =+ quantidade
+                return soma
+            }
+
+            
 }

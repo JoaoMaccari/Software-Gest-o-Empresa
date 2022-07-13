@@ -66,8 +66,9 @@
            <!-- ... -->
                 <section class="container">
                     <h2 id="titulo-form">Adicionar nova venda</h2>
-                    <form id="form-adiciona">
-                        <span id="msg-erro"></span>
+                     <span id="msg-erro"></span>
+                    <form id="form-adiciona" name="form">
+                       
                         
                         <div class="grupo">
                             <label for="cliente">Cliente:</label>
@@ -80,7 +81,7 @@
                         <div class="grupo">
                             <label for="tipo">Tipo:</label>
                             <select id="tipo" name="tipo" type="text" placeholder="digite o tipo do priduto" class="campo campo-medio" onchange="getTipo()">
-                                <option  >Selecione o tipo</option>
+                                <option value="" >Selecione o tipo</option>
                                 <option name="6f" value="6f">Tijolos 6 furos</option>
                                 <option name="9f"  value="9f">Tijolos 9 furos</option>
                                 <option name="8f" value="8f">Tijolos 8 furos</option>
