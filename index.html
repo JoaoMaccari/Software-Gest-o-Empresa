@@ -28,6 +28,7 @@
                                 <th>Tipo</th>
                                 <th>Total R$</th>
                                 <th>Quem recebeu</th>
+                                <th>Total Produto</th>
                             </tr>
                         </thead>
                         <tbody id="tabela-vendas">
@@ -37,6 +38,7 @@
                                 <td class="info-tipo">6 Furos</td>
                                 <td class="info-total">7.000</td>
                                 <td class="info-socio">João</td>
+                                
                             </tr>
                             <tr class="venda" id="segunda-venda">  
                                 <td class="info-cliente">Nara</td>
@@ -44,6 +46,7 @@
                                 <td class="info-tipo">6 Furos</td>
                                 <td class="info-total">4.000</td>
                                 <td class="info-socio">joao</td>
+                                
                             </tr>
                             <tr class="venda" id="terceira-venda">  
                                 <td class="info-cliente">Felipe</td>
@@ -51,9 +54,12 @@
                                 <td class="info-tipo">9 Furos</td>
                                 <td class="info-total">12.000</td>
                                 <td class="info-socio">socio01</td>
+                                
                             </tr>
+
                         </tbody>
                     </table>
+                    <span id="#total"></span>
                 </section>
             </main>
             
@@ -61,6 +67,8 @@
                 <section class="container">
                     <h2 id="titulo-form">Adicionar nova venda</h2>
                     <form id="form-adiciona">
+                        <span id="msg-erro"></span>
+                        
                         <div class="grupo">
                             <label for="cliente">Cliente:</label>
                             <input id="cliente" name="cliente" type="text" placeholder="digite o nome do cliente" class="campo">
@@ -81,7 +89,7 @@
                         </div>
                         <div class="grupo">
                             <label for="total">Total R$:</label>
-                            <input id="total" type="text" placeholder="digite o total em R$" class="campo campo-medio">
+                            <input id="total" name="" type="text" placeholder="digite o total em R$" class="campo campo-medio">
                         </div>
                         <div class="grupo">
                             <label for="socio">Quem recebeu:</label>
@@ -93,6 +101,8 @@
                                 
                             </select>
                         </div>
+
+                        
                         
 
                         <button id="adicionar-venda" class="botao bto-principal">Adicionar nova venda</button>

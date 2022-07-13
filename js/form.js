@@ -6,43 +6,28 @@ btnAdd.addEventListener("click", function(event) {
     event.preventDefault()
 
 
-
+    //pega inputs do formulario
     var form = document.querySelector('#form-adiciona')
-
-    let cliente = form.cliente.value;
-    let quantidade = form.quantidade.value;
-    let tipoProd = tipo
-    let total =  form.total.value;
-    let socioRecebe = socio
-
     
-    console.log(cliente);
-    console.log(quantidade);
-    console.log(tipoProd);
-    console.log(total);
-    console.log(socioRecebe);
-
-    var vendaTr = document.createElement("tr")
-
-    var clienteTd = document.createElement("td")
-    var quantidadeTd = document.createElement("td")
-    var tipoTd =  document.createElement("td")
-    var totalTd = document.createElement("td")
-    var socioTd = document.createElement("td")
+    let venda = obtemVendaFormulario(form)
     
-    clienteTd.textContent = cliente
-    quantidadeTd.textContent = quantidade
-    tipoTd.textContent = tipo
-    totalTd.textContent = total
-    socioTd.textContent = socio
+    let vendaTr = montaTr(venda)
 
-    vendaTr.appendChild(clienteTd)
-    vendaTr.appendChild(quantidadeTd)
-    vendaTr.appendChild(tipoTd)
-    vendaTr.appendChild(totalTd)
-    vendaTr.appendChild(socioTd)
+    // let erros = validaVenda(venda)
+    // var msgErro = document.querySelector("#msg-erro")
+
+    // if (erros.length > 0) {
+    //     for(let i = 0; i<erros.lenght; i++) {
+    //         msgErro.textContent += erros[i] + ", ";
+    //     }
+
+    //     return ;
+    // }
+
+    // msgErro.textContent = " algum campo invalido"
     
-    
+
+   
     var tabela = document.querySelector('#tabela-vendas')
     tabela.appendChild(vendaTr);
 })
@@ -71,6 +56,116 @@ function getTipo(){
     tipo = op
    
     return tipo;
+}
+
+function obtemVendaFormulario(form) {
+
+    let venda = {
+        cliente: form.cliente.value,
+        quantidade: form.quantidade.value,
+        tipo: form.tipo.value,
+        total: form.total.value,
+        socio: form.socio.value
+        //campo caso for colocar o total na tabela
+    }
+    console.log(venda);
+    return venda;
     
+  
+}
+
+function montaTr(venda) {
+    let vendaTr = document.createElement("tr");
+    vendaTr.classList.add("venda")
+
    
+    let clienteTd = montaTd(venda.cliente, "info-cliente")
+
+    let quantidadeTd =montaTd(venda.quantidade, "info-qtd")
+    let tipoTd = montaTd(venda.tipo, "info-tipo");
+    let totalTd = montaTd(venda.total, "info-total"); 
+    let socioTd = montaTd(venda.socio, "info-socio");
+
+    vendaTr.appendChild(clienteTd);
+    vendaTr.appendChild(quantidadeTd);
+    vendaTr.appendChild(tipoTd);
+    vendaTr.appendChild(totalTd);
+    vendaTr.appendChild(socioTd);
+
+    return vendaTr;
+}
+
+function montaTd(dado, classe) {
+    var td = document.createElement("td")
+    td.classList.add(classe);
+    td.textContent = dado;
+
+    return td;
+}
+
+function validaVenda(venda) {
+    var erros =[];
+
+    if (!validaNome(venda.cliente)) {
+        erros.push("nome é ivalido")
+    }
+    
+    if (!validaQuantidade(venda.quantidade)) {
+        erros.push("quantidade invalida")
+    }
+
+    if (!validaTipo(venda.tipo)) {
+        erros.push("tjipo invalido")
+    }
+
+    if (!validaTot(venda.total)) {
+        erros.push("total invalido")
+    }
+
+    if(!validaSocio(venda.socio)) {
+        erros.push("socio invalido")
+    }
+
+    return erros
+}
+
+
+function validaNome(nome) {
+    if (nome != ""){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function validaQuantidade(quantidade) {
+    if (quantidade >=0 && quantidade <= 30.000){
+        return true
+    }else {
+        return false
+    }
+}
+
+function validaTipo(tipo) {
+    if (tipo == "Tijolos 6 furos" || tipo == "Tijolos 8 furos" || tipo == "Tijolos 9 furos" || tipo == "Tavela") {
+        return true
+    }else {
+        return false
+    }
+}
+
+function validaTot(total) {
+    if (total >= 0 && total <=30.000) {
+        return true
+    }else{
+        return false
+    }
+}
+
+function validaSocio(socio) {
+    if (socio == "Sócio 01 " || socio == "Sócio 02") {
+        return true
+    }else{
+        return false
+    }
 }
