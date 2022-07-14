@@ -1,6 +1,5 @@
 
-let somaTot6f = 1;
-let somaTot9f = 0;
+
 let somaTot8f = 0;
 let somaTavela = 0;
 let somaTot = 0;
@@ -18,11 +17,17 @@ btnAdd.addEventListener("click", function(event) {
     
     let vendaTr = montaTr(venda)
 
-    let erros = validaVenda(venda)
+    
 
+    let erros = validaVenda(venda)
+    var msgErro = document.querySelector("#msg-erro")
+
+    
     if (erros.length > 0) {
+
         for(let i = 0; i<erros.lenght; i++) {
-            var msgErro = document.querySelector("#msg-erro")
+
+            
             msgErro.textContent += erros[i];
         }
            
@@ -31,9 +36,10 @@ btnAdd.addEventListener("click", function(event) {
     }
 
     
-    
+    // let somaTot6f = somaTot6f + venda.somatot6
+    // console.log(somaTot);
+    // console.log(venda.totaltijolo);
 
-   
     var tabela = document.querySelector('#tabela-vendas')
     tabela.appendChild(vendaTr);
 })
@@ -61,11 +67,11 @@ function obtemVendaFormulario(form) {
 
     let venda = {
         cliente: form.cliente.value,
-        quantidade:Number(form.quantidade.value),
+        quantidade: parseFloat(form.quantidade.value).toFixed(3),
         tipo: form.tipo.value,
         total: form.total.value,
         socio: form.socio.value,
-        
+        // somatot6:  Number(calculaTotProduto(form.tipo.value, form.quantidade.value))
         
         //campo caso for colocar o total na tabela
     }
@@ -176,27 +182,17 @@ function validaSocio(socio) {
 
 
 function calculaTotProduto(tipo, quantidade) {
+    let somaTot6f = 0;
+    if(tipo == '6f'){
+        
+      somaTot6f =  soma6f(quantidade)
+        return somaTot6f
+    }
+                    
+}
 
-    if(tipo == '6f') {
-                let soma
-                soma += quantidade
-                return soma
-
-            } else if (tipo == "9f") {
-
-                soma+= quantidade
-                return soma
-
-            }else if (tipo =="8f"){
-
-                somaf =+ quantidade
-                return soma
-
-            }else if (tipo == "tavela") {
-
-                soma =+ quantidade
-                return soma
-            }
-
-            
+function soma6f(quantidade) {
+    let soma =0
+    soma = soma + quantidade;
+    return soma
 }
