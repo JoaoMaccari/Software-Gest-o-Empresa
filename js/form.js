@@ -1,5 +1,6 @@
 
-
+ let tot6f = 0
+ let soma = 0
 let somaTot8f = 0;
 let somaTavela = 0;
 let somaTot = 0;
@@ -8,6 +9,8 @@ let somaTot = 0;
 let btnAdd = document.querySelector('#adicionar-venda')
 btnAdd.addEventListener("click", function(event) {
     event.preventDefault()
+
+
 
 
     //pega inputs do formulario
@@ -35,10 +38,21 @@ btnAdd.addEventListener("click", function(event) {
         
     }
 
-    
-    // let somaTot6f = somaTot6f + venda.somatot6
-    // console.log(somaTot);
-    // console.log(venda.totaltijolo);
+    // var vendas = document.querySelectorAll('.venda')
+   
+    // for (let i = 0; i< vendas.length; i++) {
+    //     if (venda.tipo = "6f") {
+    //         soma += tot6f;
+
+    //     }
+        
+    //     console.log(tot6f);
+    //     return tot6f;
+
+    // }
+ 
+
+
 
     var tabela = document.querySelector('#tabela-vendas')
     tabela.appendChild(vendaTr);
@@ -140,59 +154,3 @@ function validaVenda(venda) {
 
 
 
-function validaNome(clienteNome) {
-    if (clienteNome != ""){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-function validaQuantidade(quantidade) {
-    if (quantidade >=1 && quantidade <= 30.000){
-        return true
-    }else {
-        return false
-    }
-}
-
-function validaTipo(tipo) {
-    if (tipo == "6f" || tipo == "8f" || tipo == "9f" || tipo == "tavela") {
-        return true
-    }else {
-        return false
-    }
-}
-
-function validaTot(total) {
-    if (total >= 1 && total <=30.000) {
-        return true
-    }else{
-        return false
-    }
-}
-
-function validaSocio(socio) {
-    if (socio == "socio01" || socio == "socio02") {
-        return true
-    }else{
-        return false
-    }
-}
-
-
-function calculaTotProduto(tipo, quantidade) {
-    let somaTot6f = 0;
-    if(tipo == '6f'){
-        
-      somaTot6f =  soma6f(quantidade)
-        return somaTot6f
-    }
-                    
-}
-
-function soma6f(quantidade) {
-    let soma =0
-    soma = soma + quantidade;
-    return soma
-}

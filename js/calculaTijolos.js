@@ -148,9 +148,16 @@ for (let i = 0; i<vendas.length; i++) {
         }
     }
     
-        
+        console.log(somaTot6f);
        
 }
 
 
 
+ function validaNome(nome) {
+        if (nome != ""){
+            return true;
+        }else{
+            return false;
+        }
+    }
