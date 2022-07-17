@@ -25,32 +25,21 @@ btnAdd.addEventListener("click", function(event) {
     let erros = validaVenda(venda)
     var msgErro = document.querySelector("#msg-erro")
 
-    
+    console.log(erros);
     if (erros.length > 0) {
 
         for(let i = 0; i<erros.lenght; i++) {
 
             
             msgErro.textContent += erros[i];
+
         }
            
         return ;
         
     }
 
-    // var vendas = document.querySelectorAll('.venda')
-   
-    // for (let i = 0; i< vendas.length; i++) {
-    //     if (venda.tipo = "6f") {
-    //         soma += tot6f;
-
-    //     }
-        
-    //     console.log(tot6f);
-    //     return tot6f;
-
-    // }
- 
+  
 
 
 
@@ -81,7 +70,7 @@ function obtemVendaFormulario(form) {
 
     let venda = {
         cliente: form.cliente.value,
-        quantidade: parseFloat(form.quantidade.value).toFixed(3),
+        quantidade: form.quantidade.value,
         tipo: form.tipo.value,
         total: form.total.value,
         socio: form.socio.value,
@@ -101,7 +90,6 @@ function montaTr(venda) {
 
    
     let clienteTd = montaTd(venda.cliente, "info-cliente")
-
     let quantidadeTd =montaTd(venda.quantidade, "info-qtd")
     let tipoTd = montaTd(venda.tipo, "info-tipo");
     let totalTd = montaTd(venda.total, "info-total"); 
@@ -137,6 +125,8 @@ function validaVenda(venda) {
 
     if (!validaTipo(venda.tipo)) {
         erros.push("tjipo invalido")
+    }else {
+
     }
 
     if (!validaTot(venda.total)) {
@@ -151,6 +141,50 @@ function validaVenda(venda) {
 
     return erros
 }
+
+function validaNome(nome) {
+    if (nome != ""){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function validaQuantidade(quantidade) {
+    if (quantidade >=0 && quantidade <= 30.000){
+        return true
+    }else {
+        return false
+    }
+}
+
+function validaTipo(tipo) {
+    if (tipo == "6f" || tipo == "Tijolos 8 furos" || tipo == "Tijolos 9 furos" || tipo == "Tavela") {
+        return true
+    }else {
+        return false
+    }
+}
+
+function validaTot(total) {
+    if (total >= 0 && total <=30.000) {
+        return true
+    }else{
+        return false
+    }
+}
+
+function validaSocio(socio) {
+    if (socio = "Sócio01" || "Sócio 02") {
+        return true
+    }else{
+        return false
+    }
+}
+
+
+
+
 
 
 

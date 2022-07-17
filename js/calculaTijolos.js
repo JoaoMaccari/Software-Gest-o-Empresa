@@ -141,7 +141,7 @@ for (let i = 0; i<vendas.length; i++) {
     }
 
     function validaSocio(socio) {
-        if (socio = "Sócio 01 " || "Sócio 02") {
+        if (socio = "Sócio01" || "Sócio 02") {
             return true
         }else{
             return false
@@ -153,11 +153,3 @@ for (let i = 0; i<vendas.length; i++) {
 }
 
 
-
- function validaNome(nome) {
-        if (nome != ""){
-            return true;
-        }else{
-            return false;
-        }
-    }
