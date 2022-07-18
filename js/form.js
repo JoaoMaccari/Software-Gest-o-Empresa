@@ -1,9 +1,4 @@
 
- let tot6f = 0
- let soma = 0
-let somaTot8f = 0;
-let somaTavela = 0;
-let somaTot = 0;
 
 
 let btnAdd = document.querySelector('#adicionar-venda')
@@ -39,9 +34,6 @@ btnAdd.addEventListener("click", function(event) {
         
     }
 
-  
-
-
 
     var tabela = document.querySelector('#tabela-vendas')
     tabela.appendChild(vendaTr);
@@ -49,7 +41,7 @@ btnAdd.addEventListener("click", function(event) {
 
 function getSocio(){
     let inputSelectSocio = document.getElementById('socio');
-    let op = inputSelectSocio.options[inputSelectSocio.selectedIndex].text
+    let op = inputSelectSocio.options[inputSelectSocio.selectedIndex].value
 
   
     return op;
@@ -59,7 +51,7 @@ function getSocio(){
 
 function getTipo(){
     let inputSelect = document.getElementById('tipo');
-    let op = inputSelect.options[inputSelect.selectedIndex].text
+    let op = inputSelect.options[inputSelect.selectedIndex].value
 
 
    
@@ -74,7 +66,7 @@ function obtemVendaFormulario(form) {
         tipo: form.tipo.value,
         total: form.total.value,
         socio: form.socio.value,
-        // somatot6:  Number(calculaTotProduto(form.tipo.value, form.quantidade.value))
+        somatot6: Number(calculaTotProduto(form.tipo.value, form.quantidade.value))
         
         //campo caso for colocar o total na tabela
     }
@@ -140,46 +132,6 @@ function validaVenda(venda) {
   
 
     return erros
-}
-
-function validaNome(nome) {
-    if (nome != ""){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-function validaQuantidade(quantidade) {
-    if (quantidade >=0 && quantidade <= 30.000){
-        return true
-    }else {
-        return false
-    }
-}
-
-function validaTipo(tipo) {
-    if (tipo == "6f" || tipo == "Tijolos 8 furos" || tipo == "Tijolos 9 furos" || tipo == "Tavela") {
-        return true
-    }else {
-        return false
-    }
-}
-
-function validaTot(total) {
-    if (total >= 0 && total <=30.000) {
-        return true
-    }else{
-        return false
-    }
-}
-
-function validaSocio(socio) {
-    if (socio = "Sócio01" || "Sócio 02") {
-        return true
-    }else{
-        return false
-    }
 }
 
 

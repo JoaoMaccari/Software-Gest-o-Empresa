@@ -1,20 +1,16 @@
 var vendas = document.querySelectorAll('.venda');
-var total = document.querySelector('#total');
+
 let tipo 
 let socio;
 
-let somaTot6f = 0;
-let somaTot9f = 0;
-let somaTot8f = 0;
-let somaTavela = 0;
-let somaTot = 0;
+            
 
 
 
 for (let i = 0; i<vendas.length; i++) {
     
     let venda = vendas[i]
-
+    
     //tag de celula da tabela
     let tdNome = venda.querySelector(".info-cliente");
     let tdQt = venda.querySelector('.info-qtd');
@@ -31,7 +27,7 @@ for (let i = 0; i<vendas.length; i++) {
     let total = tdTotal.textContent
     let socio = tdSocio.textContent
 
- 
+   
     
     let quantidadeEhValido = validaQuantidade(quantidade);
     let nomeEhValido = validaNome(nome);
@@ -72,42 +68,66 @@ for (let i = 0; i<vendas.length; i++) {
     }
     
     if (quantidadeEhValido && nomeEhValido && tipoEhValido && totalEhValido && socioEhValido) {
-        somaTot6f = calculaTotProduto(tipo, quantidade)
-        somaTot8f = calculaTotProduto(tipo, quantidade)
-        somaTot9f = calculaTotProduto(tipo, quantidade)
-        somaTavela = calculaTotProduto(tipo, quantidade)
+        
+        
+       let total6f = calculatotal(quantidade)
+       let total = total6f
+       console.log(total);
+
+    
+
+        // let somaTot6f = calculaTotProduto(quantidade)
+        // console.log(somaTot6f)
+        // // somaTot8f = calculaTotProduto(tipo, quantidade)
+        // // somaTot9f = calculaTotProduto(tipo, quantidade)
+        // // somaTavela = calculaTotProduto(tipo, quantidade)
 
         
     }
 
+    // function calculaTotProduto(tipo, quantidade) {
 
-    function calculaTotProduto(tipo, quantidade) {
+    //     if(tipo == '6 Furos') {
+    //                 let soma
+    //                 soma += quantidade
+                    
+    //                 return soma
 
-        if(tipo == '6f') {
-                    let soma
-                    soma += quantidade
-                    return soma
+    //             } else if (tipo == "9f") {
 
-                } else if (tipo == "9f") {
+    //                 soma+= quantidade
+    //                 return soma
 
-                    soma+= quantidade
-                    return soma
+    //             }else if (tipo =="8f"){
 
-                }else if (tipo =="8f"){
+    //                 somaf =+ quantidade
+    //                 return soma
 
-                    somaf =+ quantidade
-                    return soma
+    //             }else if (tipo == "tavela") {
 
-                }else if (tipo == "tavela") {
-
-                    soma =+ quantidade
-                    return soma
-                }
+    //                 soma =+ quantidade
+    //                 return soma
+    //             }
 
                 
+    // }
+
+
+   
+       
+}
+
+
+    function calculatotal(qt) {
+        let s = 0
+        s+= qt
+        
+        return Number(s).toFixed(3)
     }
 
 
+
+    
     function validaNome(nome) {
         if (nome != ""){
             return true;
@@ -118,6 +138,7 @@ for (let i = 0; i<vendas.length; i++) {
 
     function validaQuantidade(quantidade) {
         if (quantidade >=0 && quantidade <= 30.000){
+           
             return true
         }else {
             return false
@@ -125,7 +146,7 @@ for (let i = 0; i<vendas.length; i++) {
     }
 
     function validaTipo(tipo) {
-        if (tipo == "Tijolos 6 furos" || tipo == "Tijolos 8 furos" || tipo == "Tijolos 9 furos" || tipo == "Tavela") {
+        if (tipo == "6 Furos" || tipo == "8 furos" || tipo == "9 uros" || tipo == "Tavela") {
             return true
         }else {
             return false
@@ -148,8 +169,4 @@ for (let i = 0; i<vendas.length; i++) {
         }
     }
     
-        console.log(somaTot6f);
-       
-}
-
-
+        
