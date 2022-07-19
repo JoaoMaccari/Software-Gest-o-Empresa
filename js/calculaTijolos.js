@@ -118,6 +118,8 @@ for (let i = 0; i<vendas.length; i++) {
 }
 
 
+
+
     function calculatotal(qt) {
         let s = 0
         s+= qt

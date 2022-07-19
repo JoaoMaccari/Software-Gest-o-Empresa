@@ -66,7 +66,7 @@ function obtemVendaFormulario(form) {
         tipo: form.tipo.value,
         total: form.total.value,
         socio: form.socio.value,
-        somatot6: Number(calculaTotProduto(form.tipo.value, form.quantidade.value))
+        somatot6: Number(calculaTotProduto( form.quantidade.value))
         
         //campo caso for colocar o total na tabela
     }
