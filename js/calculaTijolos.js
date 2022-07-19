@@ -1,12 +1,13 @@
 var vendas = document.querySelectorAll('.venda');
+let soma6 =0
+let soma8 = 0
+let soma9 = 0
+let somaTavela = 0
 
 let tipo 
 let socio;
 
-            
-
-
-
+        
 for (let i = 0; i<vendas.length; i++) {
     
     let venda = vendas[i]
@@ -68,68 +69,57 @@ for (let i = 0; i<vendas.length; i++) {
     }
     
     if (quantidadeEhValido && nomeEhValido && tipoEhValido && totalEhValido && socioEhValido) {
-        
-        
-       let total6f = calculatotal(quantidade)
-       let total = total6f
-       console.log(total);
-
-    
-
-        // let somaTot6f = calculaTotProduto(quantidade)
-        // console.log(somaTot6f)
-        // // somaTot8f = calculaTotProduto(tipo, quantidade)
-        // // somaTot9f = calculaTotProduto(tipo, quantidade)
-        // // somaTavela = calculaTotProduto(tipo, quantidade)
-
-        
-    }
-
-    // function calculaTotProduto(tipo, quantidade) {
-
-    //     if(tipo == '6 Furos') {
-    //                 let soma
-    //                 soma += quantidade
-                    
-    //                 return soma
-
-    //             } else if (tipo == "9f") {
-
-    //                 soma+= quantidade
-    //                 return soma
-
-    //             }else if (tipo =="8f"){
-
-    //                 somaf =+ quantidade
-    //                 return soma
-
-    //             }else if (tipo == "tavela") {
-
-    //                 soma =+ quantidade
-    //                 return soma
-    //             }
-
-                
-    // }
-
 
    
        
+        let total6f = calculaTotal6f(quantidade)
+        let total8f = calculaTotal8f(quantidade)
+        let total9f = calculaTotal9f(quantidade)
+        let totalT = calculaTavela(quantidade)
+
+        
+    }
+   
 }
 
 
 
-
-    function calculatotal(qt) {
-        let s = 0
-        s+= qt
+    // função que faz a soma dos produtos
+    function calculaTotal6f(qt) {
+        soma6 += qt
         
-        return Number(s).toFixed(3)
+        
+        return soma6
+    }
+
+    
+    function calculaTotal8f(qt) {
+        soma8 += qt
+        
+     
+        return soma8
+    }
+
+    
+    function calculaTotal9f(qt) {
+        soma9 += qt
+        
+        
+        return soma9
+    }
+
+    
+    function calculaTavela(qt) {
+        somaTavela += qt
+        
+       
+        return somaTavela
     }
 
 
-
     
+
+    // funções de validação
     function validaNome(nome) {
         if (nome != ""){
             return true;

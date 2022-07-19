@@ -8,7 +8,7 @@ btnAdd.addEventListener("click", function(event) {
 
 
 
-    //pega inputs do formulario
+                                                                        //pega inputs do formulario
     var form = document.querySelector('#form-adiciona')
     
     let venda = obtemVendaFormulario(form)
@@ -66,9 +66,13 @@ function obtemVendaFormulario(form) {
         tipo: form.tipo.value,
         total: form.total.value,
         socio: form.socio.value,
-        somatot6: Number(calculaTotProduto( form.quantidade.value))
+        total6Furos: Number(calculaTotal6f( form.quantidade.value)),
+        total8Furos: Number(calculaTotal8f( form.quantidade.value)),
+        total9Furos: Number(calculaTotal9f( form.quantidade.value)),
+        totalTavela: Number(calculaTavela( form.quantidade.value))
+
+        //somar oq entra no form
         
-        //campo caso for colocar o total na tabela
     }
     console.log(venda);
     return venda;
@@ -76,6 +80,8 @@ function obtemVendaFormulario(form) {
   
 }
 
+
+                                                                        // MONTA TABELA
 function montaTr(venda) {
     let vendaTr = document.createElement("tr");
     vendaTr.classList.add("venda")
@@ -116,7 +122,7 @@ function validaVenda(venda) {
     }
 
     if (!validaTipo(venda.tipo)) {
-        erros.push("tjipo invalido")
+        erros.push("tipo invalido")
     }else {
 
     }
