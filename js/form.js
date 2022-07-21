@@ -15,8 +15,8 @@ btnAdd.addEventListener("click", function(event) {
     
     let vendaTr = montaTr(venda)
 
-    
 
+    
     let erros = validaVenda(venda)
     var msgErro = document.querySelector("#msg-erro")
 
@@ -37,6 +37,9 @@ btnAdd.addEventListener("click", function(event) {
 
     var tabela = document.querySelector('#tabela-vendas')
     tabela.appendChild(vendaTr);
+
+    
+
 })
 
 function getSocio(){
@@ -59,26 +62,37 @@ function getTipo(){
 }
 
 function obtemVendaFormulario(form) {
+   
+    
 
     let venda = {
         cliente: form.cliente.value,
-        quantidade: form.quantidade.value,
-        tipo: form.tipo.value,
+        quantidade:form.cliente.value,
+        tipo:form.tipo.value,
         total: form.total.value,
         socio: form.socio.value,
-        total6Furos: Number(calculaTotal6f( form.quantidade.value)),
-        total8Furos: Number(calculaTotal8f( form.quantidade.value)),
-        total9Furos: Number(calculaTotal9f( form.quantidade.value)),
-        totalTavela: Number(calculaTavela( form.quantidade.value))
+
+        
+        
+        // total6Furos: calculaTotal6f(venda)
+        // total8Furos: Number(calculaTotal8f( form.quantidade.value)),
+        // total9Furos: Number(calculaTotal9f( form.quantidade.value)),
+        // totalTavela: Number(calculaTavela( form.quantidade.value))
 
         //somar oq entra no form
         
+        
     }
-    console.log(venda);
+
+   
+    
+
     return venda;
     
   
 }
+
+    
 
 
                                                                         // MONTA TABELA

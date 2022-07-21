@@ -1,8 +1,9 @@
 var vendas = document.querySelectorAll('.venda');
-let soma6 =0
+var soma = 0
 let soma8 = 0
 let soma9 = 0
 let somaTavela = 0
+
 
 let tipo 
 let socio;
@@ -19,24 +20,29 @@ for (let i = 0; i<vendas.length; i++) {
     let tdSocio = venda.querySelector('.info-socio')
     let tdTotal = venda.querySelector('.info-total')
     
+//    console.log(tdQt)
     
-
     //tag valor da celula
     let nome = tdNome.textContent
-    let quantidade = Number(tdQt.textContent)
+    let quantidade = tdQt.textContent
     let tipo = tdTipo.textContent
     let total = tdTotal.textContent
     let socio = tdSocio.textContent
 
-   
+    // console.log(quantidade);
+    // console.log(typeof quantidade);
     
-    let quantidadeEhValido = validaQuantidade(quantidade);
+    let qt = Number(quantidade)
+    // console.log(qt)
+    // console.log(typeof qt)
+    
+    let quantidadeEhValido = validaQuantidade(qt);
     let nomeEhValido = validaNome(nome);
     let tipoEhValido = validaTipo(tipo);
     let totalEhValido = validaTot(total);
     let socioEhValido = validaSocio(socio);
 
-    if (quantidade <= 0 ) {
+    if (qt <= 0 ) {
         quantidadeEhValido = false
         tdQt.textContent = "Insira um valor correto"
         venda.classList.add("campo-invalido")
@@ -68,28 +74,32 @@ for (let i = 0; i<vendas.length; i++) {
         tdSocio.textContent = "Insira um nome"
     }
     
-    if (quantidadeEhValido && nomeEhValido && tipoEhValido && totalEhValido && socioEhValido) {
+    if (qt && nomeEhValido && tipoEhValido && totalEhValido && socioEhValido) {
 
    
        
-        let total6f = calculaTotal6f(quantidade)
+        let total6f = calculaTotal6f(qt)
         let total8f = calculaTotal8f(quantidade)
         let total9f = calculaTotal9f(quantidade)
         let totalT = calculaTavela(quantidade)
 
-        
+        //  console.log(total6f);
     }
    
+    
 }
 
 
-
+    
     // função que faz a soma dos produtos
     function calculaTotal6f(qt) {
-        soma6 += qt
+        let total
+       
+       soma += qt
+        total= soma
+
         
-        
-        return soma6
+        return Number(total).toFixed(3)
     }
 
     
