@@ -74,10 +74,10 @@ function obtemVendaFormulario(form) {
 
         
         
-        // total6Furos: calculaTotal6f(venda)
-        // total8Furos: Number(calculaTotal8f( form.quantidade.value)),
-        // total9Furos: Number(calculaTotal9f( form.quantidade.value)),
-        // totalTavela: Number(calculaTavela( form.quantidade.value))
+         total6Furos: Number(calculaTotal6f( form.quantidade.value)),
+         total8Furos: Number(calculaTotal8f( form.quantidade.value)),
+         total9Furos: Number(calculaTotal9f( form.quantidade.value)),
+        totalTavela: Number(calculaTavela( form.quantidade.value))
 
         //somar oq entra no form
         
