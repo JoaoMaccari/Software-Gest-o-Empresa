@@ -131,7 +131,7 @@ function validaVenda(venda) {
         erros.push("nome é ivalido")
     }
     
-    if (!validaQuantidade(venda.quantidade)) {
+    if (validaQuantidade(venda.quantidade)) {
         erros.push("quantidade invalida")
     }
 

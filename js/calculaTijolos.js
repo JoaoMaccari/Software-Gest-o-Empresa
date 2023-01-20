@@ -83,7 +83,7 @@ for (let i = 0; i<vendas.length; i++) {
         let total9f = calculaTotal9f(quantidade)
         let totalT = calculaTavela(quantidade)
 
-        //  console.log(total6f);
+          console.log(total6f);
     }
    
     
