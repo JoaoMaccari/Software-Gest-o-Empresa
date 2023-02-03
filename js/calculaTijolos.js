@@ -83,7 +83,7 @@ for (let i = 0; i<vendas.length; i++) {
         let total9f = calculaTotal9f(quantidade)
         let totalT = calculaTavela(quantidade)
 
-          console.log(total6f);
+          
     }
    
     
@@ -148,7 +148,7 @@ for (let i = 0; i<vendas.length; i++) {
     }
 
     function validaTipo(tipo) {
-        if (tipo == "6 Furos" || tipo == "8 furos" || tipo == "9 uros" || tipo == "Tavela") {
+        if (tipo == "6 Furos" || tipo == "8 furos" || tipo == "9 furos" || tipo == "Tavela") {
             return true
         }else {
             return false
